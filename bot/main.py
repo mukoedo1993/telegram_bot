@@ -1,8 +1,15 @@
 from tokens import cmc_token
+from telegram_token import token
 
 import json
 
 import requests
+from flask import Flask # Because we need to support SSL for the webhook method.
+from flask import request
+
+app = Flask(__name__)
+
+
 
 def write_json(data, filename = 'response.json'):
     with open(filename, 'w') as f:
@@ -20,10 +27,20 @@ def get_cmc_data(crypto):
 
     #print(r)
     return price
+@app.route('/', methods = ['POST', 'GET'])
+def index():
+    return '<h1>CoinMarketCap bot</h1>'
 
 def main():
+    # TODO BOT
+
+    # 1. Locally create a basic Flask application
+    ### 2. Set up a tunnel
+    # It allows anyone with internet to access our local host.
+    # 3. Set a webhook
     #get_cmc_data('BTC')
     print(get_cmc_data('BTC'))
+    #https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/getMe
 
 
 if __name__ == '__main__':
@@ -31,6 +48,8 @@ if __name__ == '__main__':
     A module can discover whether or not it is running in the main scope by checking its own __name__, which allows a common idiom for conditionally executing code in a module 
     when it is run as a script or with python -m but not when it is imported:
     """
-    main()
+    #main()
+    app.run(debug = True)
+    #http://localhost:5000/
 
 

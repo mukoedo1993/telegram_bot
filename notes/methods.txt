@@ -1,0 +1,14 @@
+https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/getMe
+get basic info
+
+https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/getUpdates
+getUpdates
+
+
+https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/sendMessage?chat_id=868521920&text=suck!
+sendMessage with chat id and text parameters
+
+
+#You need to run main.py beforehand.
+https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/setWebhook?url=https://eaf4d1b3025a.ngrok.io
+# We will not need getUpdate anymore, because telegram has already set webhook for it...
