@@ -8,3 +8,9 @@
 
 https://coinmarketcap.com/
 crypto API
+
+
+
+You need to run python main.py 
+#here and 
+ngrok http 5000 # in another place.

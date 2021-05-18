@@ -29,7 +29,10 @@ def get_cmc_data(crypto):
     return price
 @app.route('/', methods = ['POST', 'GET'])
 def index():
-    return '<h1>CoinMarketCap bot</h1>'
+    if request.method == 'POST':
+        pass
+    else:
+        return '<h1>CoinMarketCap bot</h1>'
 
 def main():
     # TODO BOT
