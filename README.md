@@ -1,3 +1,7 @@
+# It will not work.
+I couldn't deal with the ngrok well, so I archived this repo.
+
+
 # telegram_python_bot
 
 
