@@ -6,6 +6,7 @@ import json
 import requests
 from flask import Flask # Because we need to support SSL for the webhook method.
 from flask import request
+from flask import Response
 
 app = Flask(__name__)
 
@@ -27,12 +28,48 @@ def get_cmc_data(crypto):
 
     #print(r)
     return price
+
+def parse_message(message):
+    chat_id = message['message']['chat']['id']
+    txt = message['message']['text'] #/btc; or /maid
+
+    pattern = r'/[a-zA-Z]{2,4}'
+
+    ticker = re.findall(pattern, txt) #[...]
+
+    if ticker:
+        symbol = ticker[0][1:].upper() # /btc > btc .strip('/')
+    else:
+        symbol = ''
+
+    return chat_id, symbol
+
+def send_message(chat_id, text = 'bla-bla-bla'):
+    url = f'https://api.telegram.org/bot{token}/sendMessage'
+    payload = {'chat_id': chat_id, 'text': text}
+
+    r = requests.post(url, json=payload)
+    return r
+
 @app.route('/', methods = ['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        pass
+        msg = request.get_json()
+        chat_id, symbol = parse_message(msg)
+
+        if not symbol:
+            send_message(chat_id, 'Wrong data')
+            return Response('Ok', status=200)
+
+        price = get_cmc_data(symbol)
+        send_message(chat_id, price)
+        #write_json(msg, 'telegram_request.json')
+
+        return Response('Ok', status=200)
+        # It will prevent telegram from spamming our bot with its requests.
+
     else:
-        return '<h1>CoinMarketCap bot</h1>'
+        return '<h1>CoinMarketCap bot May18 LA ZCdfsfW</h1>'
 
 def main():
     # TODO BOT

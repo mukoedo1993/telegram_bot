@@ -10,5 +10,5 @@ sendMessage with chat id and text parameters
 
 
 #You need to run main.py beforehand.
-https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/setWebhook?url=https://eaf4d1b3025a.ngrok.io
+https://api.telegram.org/bot1776387033:AAHMievvzfpB4d04KY_WErp8ceVkRWacw14/setWebhook?url=https://7e383c568b59.ngrok.io
 # We will not need getUpdate anymore, because telegram has already set webhook for it...

@@ -1,0 +1,23 @@
+{
+    "update_id": 233977855,
+    "message": {
+        "message_id": 26,
+        "from": {
+            "id": 868521920,
+            "is_bot": false,
+            "first_name": "Ha",
+            "last_name": "Ha",
+            "username": "Xianzhong_the_Great",
+            "language_code": "en"
+        },
+        "chat": {
+            "id": 868521920,
+            "first_name": "Ha",
+            "last_name": "Ha",
+            "username": "Xianzhong_the_Great",
+            "type": "private"
+        },
+        "date": 1621381780,
+        "text": "曹尼玛"
+    }
+}
